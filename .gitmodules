@@ -1,0 +1,6 @@
+[submodule "Flux_backend"]
+	path = Flux_backend
+	url = https://github.com/MustafaAmer-1/Flux_backend
+[submodule "Flux_frontend"]
+	path = Flux_frontend
+	url = https://github.com/MustafaAmer-1/Flux_frontend
