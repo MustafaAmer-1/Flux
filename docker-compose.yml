@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database Service
+  postgres:
+    image: postgres:15
+    container_name: flux-db
+    environment:
+      POSTGRES_USER: fluxuser
+      POSTGRES_PASSWORD: passdb
+      POSTGRES_DB: fluxdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  # Backend Service
+  backend:
+    build:
+      context: ./Flux_backend # Path to backend's Dockerfile
+    container_name: backend-app
+    environment:
+      PORT: 8080
+      DB_URL: postgres://fluxuser:passdb@postgres:5432/fluxdb
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./Flux_frontend # Path to frontend's Dockerfile
+    container_name: frontend-app
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
