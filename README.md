@@ -17,7 +17,7 @@ Flux is your one-stop RSS feed aggregator, bringing the latest updates from your
 ---
 
 ## 🌐 **Try Flux Live!**
-Experience Flux in action at: [Flux RSS Aggregator](https://flux-rss.fly.dev/)  
+Experience Flux in action at: [Flux RSS Aggregator](https://flux-rss-orcin.vercel.app/)  
 1. **Register an account** to get started.  
 2. Add as many feed URLs as you like.  
 3. Browse available feeds added by other users and follow them.  
